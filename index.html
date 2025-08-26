@@ -269,6 +269,85 @@
             columns: 1;
         }
 
+        /* Examples Section Styles */
+        .examples-box {
+            border: 1px solid #666;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+
+        .examples-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .example-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .example-query {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-style: italic;
+            border-left: 3px solid #666;
+            padding-left: 8px;
+        }
+
+        .example-chain {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            background: #f9f9f9;
+            padding: 8px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+
+        .function-call {
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .params {
+            color: #333;
+        }
+
+        .nested-call {
+            color: #9933cc;
+            font-weight: bold;
+        }
+
+        .chain-arrow {
+            color: #999;
+            margin: 0 4px;
+            font-weight: bold;
+        }
+
+        .chain-plus {
+            color: #666;
+            margin: 0 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .llm-magic {
+            background: linear-gradient(90deg, #ff6496, #9664ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-family: Georgia, serif;
+        }
+
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -304,6 +383,15 @@
                 font-size: 11px;
                 padding: 2px 4px;
                 margin: 1px 0;
+            }
+            
+            .example-chain {
+                font-size: 10px;
+                padding: 6px;
+            }
+            
+            .example-query {
+                font-size: 12px;
             }
         }
     </style>
@@ -405,6 +493,48 @@
                     <span class="dot" onclick="showScreenshot(2)"></span>
                 </div>
                 <button class="nav-btn" onclick="changeScreenshot(1)">→</button>
+            </div>
+        </div>
+
+        <!-- Examples Section - Full Width -->
+        <div class="box examples-box" style="grid-column: 1 / -1;">
+            <h3>Real-World Examples</h3>
+            <div class="examples-container">
+                <div class="example-item">
+                    <div class="example-query">"Send Garry the meeting link"</div>
+                    <div class="example-chain">
+                        <span class="function-call">text_message</span><span class="params">(to: <span class="nested-call">find_contact</span>("Garry"), body: <span class="nested-call">find_calendar_event</span>())</span>
+                    </div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-query">"What's a good Los Tacos location convenient for my cousin and I? What train should I take?"</div>
+                    <div class="example-chain">
+                        <span class="function-call">directions</span><span class="params">(to: "Los Tacos", from: <span class="nested-call">get_location</span>())</span>
+                        <span class="chain-plus">+</span>
+                        <span class="function-call">directions</span><span class="params">(to: "Los Tacos", from: <span class="nested-call">get_contact</span>("cousin"))</span>
+                        <span class="chain-arrow">→</span>
+                        <span class="llm-magic">✨ AI Analysis</span>
+                        <span class="chain-arrow">→</span>
+                        <span class="function-call">show_ui_preview</span><span class="params">("formatted response")</span>
+                    </div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-query">"Uber to my meeting"</div>
+                    <div class="example-chain">
+                        <span class="function-call">uber</span><span class="params">(to: <span class="nested-call">get_calendar_event</span>())</span>
+                    </div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-query">"What's the closest DHL? Call them."</div>
+                    <div class="example-chain">
+                        <span class="function-call">google_search</span><span class="params">(<span class="nested-call">directions</span>(to: "DHL", from: <span class="nested-call">get_location</span>()) + "phone number")</span>
+                        <span class="chain-arrow">→</span>
+                        <span class="function-call">phone_call</span><span class="params">(number)</span>
+                    </div>
+                </div>
             </div>
         </div>
 
