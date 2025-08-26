@@ -315,7 +315,7 @@
     <p class="tagline">Lightning Fast Voice Assistant with Powerful AI Tools</p>
 
     <div class="intro">
-        Saturn connects your action button to Google's Gemini AI. A live session starts instantly when you open the app, delivering responses in just 300ms. With 17 specialized iOS tools and access to any shortcut you create, it intelligently combines context and advanced AI to seamlessly chain actions together.
+        Saturn connects your action button to Google's Gemini AI. A live session starts instantly when you open the app, delivering responses in just 300ms. With 18 specialized iOS tools and access to any shortcut you create, it intelligently combines context and advanced AI to seamlessly chain actions together.
     </div>
 
     <div class="links">
@@ -324,33 +324,6 @@
     </div>
 
     <div class="content-grid">
-        <!-- Screenshots -->
-        <div class="box">
-            <h3>Screenshots</h3>
-            <div class="media-container">
-                <div class="media-slides" id="screenshot-slides">
-                    <div class="media-slide">
-                        <img src="screenshot_main.PNG" alt="Main">
-                    </div>
-                    <div class="media-slide">
-                        <img src="screenshot_2.PNG" alt="Features">
-                    </div>
-                    <div class="media-slide">
-                        <img src="screenshot_3.PNG" alt="Action">
-                    </div>
-                </div>
-            </div>
-            <div class="media-controls">
-                <button class="nav-btn" onclick="changeScreenshot(-1)">←</button>
-                <div class="dots">
-                    <span class="dot active" onclick="showScreenshot(0)"></span>
-                    <span class="dot" onclick="showScreenshot(1)"></span>
-                    <span class="dot" onclick="showScreenshot(2)"></span>
-                </div>
-                <button class="nav-btn" onclick="changeScreenshot(1)">→</button>
-            </div>
-        </div>
-
         <!-- Demo Videos -->
         <div class="box">
             <h3>Demo Videos</h3>
@@ -408,6 +381,33 @@
             </div>
         </div>
 
+        <!-- Screenshots -->
+        <div class="box">
+            <h3>Screenshots</h3>
+            <div class="media-container">
+                <div class="media-slides" id="screenshot-slides">
+                    <div class="media-slide">
+                        <img src="screenshot_main.PNG" alt="Main">
+                    </div>
+                    <div class="media-slide">
+                        <img src="screenshot_2.PNG" alt="Features">
+                    </div>
+                    <div class="media-slide">
+                        <img src="screenshot_3.PNG" alt="Action">
+                    </div>
+                </div>
+            </div>
+            <div class="media-controls">
+                <button class="nav-btn" onclick="changeScreenshot(-1)">←</button>
+                <div class="dots">
+                    <span class="dot active" onclick="showScreenshot(0)"></span>
+                    <span class="dot" onclick="showScreenshot(1)"></span>
+                    <span class="dot" onclick="showScreenshot(2)"></span>
+                </div>
+                <button class="nav-btn" onclick="changeScreenshot(1)">→</button>
+            </div>
+        </div>
+
         <!-- Key Features -->
         <div class="box features-box">
             <h3>✨ Key Features ✨</h3>
@@ -423,11 +423,12 @@
 
         <!-- iOS Tools -->
         <div class="box tools-box">
-            <h3>✨ 17 Native iOS Tools ✨</h3>
+            <h3>✨ 18 Native iOS Tools ✨</h3>
             <ul>
                 <li>🔍 Google Search</li>
                 <li>📍 Get Location</li>
                 <li>👥 Search Contacts</li>
+                <li>📞 Phone Call</li>
                 <li>💬 Send Text (SMS)</li>
                 <li>📅 Get Events</li>
                 <li>🗺️ Open Google Maps</li>
@@ -459,7 +460,7 @@
             const slides = document.getElementById('screenshot-slides');
             slides.style.transform = `translateX(-${index * 100}%)`;
             
-            document.querySelectorAll('.box:nth-child(1) .dot').forEach((dot, i) => {
+            document.querySelectorAll('.box:nth-child(2) .dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
         }
@@ -476,7 +477,7 @@
             const slides = document.getElementById('video-slides');
             slides.style.transform = `translateX(-${index * 100}%)`;
             
-            document.querySelectorAll('.box:nth-child(2) .dot').forEach((dot, i) => {
+            document.querySelectorAll('.box:nth-child(1) .dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
         }
